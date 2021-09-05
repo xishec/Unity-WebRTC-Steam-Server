@@ -1,4 +1,4 @@
-import * as functions from 'firebase-functions';
+// import * as functions from 'firebase-functions';
 
 // // Start writing Firebase Functions
 // // https://firebase.google.com/docs/functions/typescript
@@ -22,7 +22,12 @@ app.get('/config', (req, res) => res.json({useWebSocket: true, startupMode: 'pub
 app.use('/signaling', signaling);
 app.use(express.static(path.join(__dirname, '../public')));
 app.get('/', (req, res) => {
-	functions.logger.info('Hello logs!', {structuredData: true});
+	// functions.logger.info('Hello logs!', {structuredData: true});
 	res.send('Hello from Firebase! at 508');
 });
-export const helloWorld = functions.https.onRequest(app);
+// export const helloWorld = functions.https.onRequest(app);
+
+const port = 3000;
+app.listen(port, () => {
+	console.log(`Example app listening at http://localhost:${port}`);
+});
